@@ -29,7 +29,7 @@ int main(void)
     timer.attach_us(&sample,10000);
 
     while(true){
-        while(!trig)
+        while(trig)
         {
             trig = 0;
             accelerometer.get_x_axes(axes);
