@@ -29,12 +29,10 @@ int main(void)
     timer.attach_us(&sample,10100);
 
     while(true){
-        while(trig)
-        {
-            trig = 0;
-            accelerometer.get_x_axes(axes);
-            ser.printf("%ld,%ld,%ld\n\r",axes[0],axes[1],axes[2]);
-            led = !led;
-        }
+        while (!trig){}
+        trig = 0;
+        accelerometer.get_x_axes(axes);
+        ser.printf("%ld,%ld,%ld\n\r",axes[0],axes[1],axes[2]);
+        led = !led;
     }
 }
