@@ -26,10 +26,10 @@ int main(void)
     ser.printf("LSM303AGR accelerometer           = 0x%X\r\n", id); 
     accelerometer.get_x_axes(axes);
     ser.printf("LSM303AGR [acc/mg]:      %6ld, %6ld, %6ld\r\n", axes[0], axes[1], axes[2]);
-    timer.attach_us(&sample,10000);
+    timer.attach_us(&sample,10100);
 
     while(true){
-        while(!trig)
+        while(trig)
         {
             trig = 0;
             accelerometer.get_x_axes(axes);
